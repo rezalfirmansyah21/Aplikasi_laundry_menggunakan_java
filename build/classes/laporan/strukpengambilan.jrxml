@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e2e99d2-d634-41bf-9e72-861a2b19bc2c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="transaksi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="user" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT t.id_pengambilan, t.kode, t.id, t.nama, t.paket, t.harga, t.jumlah, t.hargasemua, t.tanggal, t.total, t.bayar, t.kembalian, t.jam, t.tanggalpengambilan, a.nama_admin FROM pengambilan AS t, admin AS a WHERE t.kode = $P{transaksi} AND a.nama_admin = $P{user}]]>
+	</queryString>
+	<field name="id_pengambilan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paket" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hargasemua" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jam" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggalpengambilan" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_admin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="206" splitType="Stretch">
+			<textField>
+				<reportElement x="256" y="99" width="100" height="26" uuid="706ae392-2534-4424-ac09-d5da778a6777"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="138" width="100" height="20" uuid="060b89da-274b-4176-9e34-99e6c0169e88"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="296" y="172" width="100" height="20" uuid="82246d80-082a-449d-975e-47c6f8863041"/>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="176" y="172" width="120" height="20" uuid="47c10235-d695-40b3-8309-730cae0c19cf"/>
+				<text><![CDATA[Tanggal penerimaan    :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="138" width="118" height="20" uuid="a4002e1d-1f62-43e9-8b82-29dac0dd2279"/>
+				<text><![CDATA[Nama                           :]]></text>
+			</staticText>
+			<image>
+				<reportElement x="155" y="14" width="241" height="74" uuid="9628ec9c-3d7f-44f9-919c-b0cdb08a822d"/>
+				<imageExpression><![CDATA["C:\\Users\\LENOVO-PC\\Documents\\NetBeansProjects\\RumahLaundry\\src\\img\\logo.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="164" y="202" width="232" height="1" uuid="ae1973fa-9624-4cc4-bd2b-48915f2e0705"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="98" splitType="Stretch">
+			<textField>
+				<reportElement x="294" y="0" width="100" height="20" uuid="11507baf-f49f-4bdc-a7b7-436cbdcb9297"/>
+				<textFieldExpression><![CDATA[$F{paket}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="176" y="0" width="118" height="20" uuid="f15eae3a-0d07-4e45-94b9-50bf7badb2a9"/>
+				<text><![CDATA[Paket                            :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="32" width="100" height="20" uuid="01f2e2fa-98de-40e7-90d5-7395d00449b2"/>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="176" y="32" width="120" height="20" uuid="5b49f741-61a0-4f73-ab36-04fff450aeec"/>
+				<text><![CDATA[Harga                           :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="294" y="65" width="21" height="20" uuid="1791eedf-ab5f-4860-a2ea-44fc4221293a"/>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="176" y="65" width="118" height="20" uuid="1e5a0829-88d9-46c9-9807-95f766a82146"/>
+				<text><![CDATA[Jumlah                         :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="32" width="16" height="20" uuid="f09ae8b7-b88b-4841-9b5d-554a94199c9b"/>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="65" width="16" height="20" uuid="d3bc74d7-3531-405f-9024-ff32b361c602"/>
+				<text><![CDATA[kg]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="194" splitType="Stretch">
+			<textField>
+				<reportElement x="296" y="163" width="100" height="20" uuid="0ccaa257-b778-430b-9cf8-b43397e7653d"/>
+				<textFieldExpression><![CDATA[$P{user}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="100" height="20" uuid="676f35c6-713c-426b-bf26-d180fd24cb21"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="31" width="100" height="20" uuid="b9336259-ba51-41c2-9c6e-532b2a6aede7"/>
+				<textFieldExpression><![CDATA[$F{bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="63" width="100" height="20" uuid="88d426ee-b6a9-4d3d-be0f-ce81489c132d"/>
+				<textFieldExpression><![CDATA[$F{kembalian}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="296" y="95" width="100" height="20" uuid="4a4c4866-896b-41cc-b938-0397799ab49a"/>
+				<textFieldExpression><![CDATA[$F{tanggalpengambilan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="129" width="100" height="20" uuid="1ff7106c-b253-4b03-bf4f-aa69ffe6e792"/>
+				<textFieldExpression><![CDATA[$F{jam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="178" y="95" width="118" height="20" uuid="71751d1e-6140-4154-a706-1a6b89523171"/>
+				<text><![CDATA[Tanggal pengambilan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="63" width="118" height="20" uuid="36f3dc79-258c-4446-b3be-d5d4dd90795a"/>
+				<text><![CDATA[Kembalian                   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="31" width="118" height="20" uuid="691d9c9b-fe21-43e3-bb6d-8615f284617e"/>
+				<text><![CDATA[Bayar                           :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="0" width="118" height="20" uuid="64be2a5c-2d52-4336-b3cc-0ec7aa0f3185"/>
+				<text><![CDATA[Total                            :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="129" width="118" height="20" uuid="6ae34bb5-95b8-4845-b765-ad7ed783c73c"/>
+				<text><![CDATA[Jam                             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="163" width="118" height="20" uuid="b86e5a55-1aa1-4123-ab13-1be3802aae1b"/>
+				<text><![CDATA[Admin                         :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="0" width="16" height="20" uuid="c8af96c7-55ba-423b-a671-ea573fc9f6db"/>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="31" width="16" height="20" uuid="23bef29c-f721-496a-8d3a-c7476dcb42e6"/>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="63" width="16" height="20" uuid="bfab4093-325a-42dd-8e23-8b5fe291f15c"/>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="164" y="122" width="232" height="1" uuid="07408acc-8334-4a4a-b61d-d1c5f7512fc0"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

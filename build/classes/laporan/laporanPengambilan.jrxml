@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e91ac47f-b007-4f03-b88a-3fcc079a0962">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tglmulai" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tglselesai" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="user" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT t.id_pengambilan, t.kode, t.id, t.nama, t.paket, t.harga, t.jumlah, t.hargasemua, t.tanggal, t.total, t.bayar, t.kembalian, t.jam, t.tanggalpengambilan, a.nama_admin FROM pengambilan AS t, admin AS a WHERE a.nama_admin = $P{user} AND t.tanggalpengambilan BETWEEN $P{tglmulai} AND $P{tglselesai}]]>
+	</queryString>
+	<field name="id_pengambilan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paket" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hargasemua" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jam" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggalpengambilan" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_admin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="gtotal" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{bayar}-$F{kembalian}]]></variableExpression>
+	</variable>
+	<group name="grand_total">
+		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement x="684" y="30" width="100" height="20" uuid="83bfb119-3319-4f5b-94da-449cce5b0d00"/>
+					<textFieldExpression><![CDATA[$V{gtotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="572" y="30" width="94" height="20" uuid="883726fc-6fdf-4778-9663-5d77a0467edd"/>
+					<textElement verticalAlignment="Top"/>
+					<text><![CDATA[Total pemasukan :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="666" y="30" width="18" height="20" uuid="6b3c79f6-f5bf-4083-835f-2c20190fadd5"/>
+					<textElement>
+						<font size="10" isBold="false" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Rp.]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="557" y="0" width="154" height="29" uuid="0ca2b8a0-bf1c-4947-8ca5-64f972d8b4fc"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rumah Laundry]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="572" y="53" width="114" height="24" uuid="1aa56f1e-b4dc-4002-a6ae-4fea50dd650e"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[081297213656]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="29" width="365" height="24" uuid="4b1ab072-2e66-44cb-85cf-d488b770e5fa"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jl.Anggrek RT.004/01, Ciganjur Jakarta Selatan]]></text>
+			</staticText>
+			<image>
+				<reportElement x="23" y="0" width="227" height="79" uuid="dc99adb7-8333-4fb9-9fcb-b959f6f409d5"/>
+				<imageExpression><![CDATA["C:\\Users\\LENOVO-PC\\Documents\\NetBeansProjects\\RumahLaundry\\src\\img\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="479" y="15" width="115" height="20" uuid="c8a68ad8-6ad0-40c2-93e8-e8587d5ae15a"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new java.util.Date($P{tglmulai}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="15" width="116" height="20" uuid="0a617704-4646-43cc-9b67-8a9c687da03b"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new java.util.Date($P{tglselesai}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="0" width="197" height="29" uuid="5747e022-a5d9-470d-97de-3e3727052b3b"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Pengambilan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="594" y="15" width="46" height="20" uuid="8a0e6a29-1bac-41ce-99ac-a68ca9b5063a"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[  s/d]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="8" width="83" height="20" uuid="d7c37256-47d8-4ef8-9ef0-c9d01d9d8ca4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="83" y="8" width="98" height="20" uuid="3ea50451-46c4-4770-b06c-30c3ced78c40"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="181" y="8" width="116" height="20" uuid="b74cf943-065d-478b-8f38-5c0c9852e28b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="297" y="8" width="96" height="20" uuid="ecc10972-31cd-44ff-8f7d-5bd3ac0cd763"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="8" width="73" height="20" uuid="4d103c30-e2c6-425c-bb7e-7c4027c12695"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="466" y="8" width="89" height="20" uuid="2c442160-38e7-44ec-a9d5-88ec39ef4706"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="555" y="8" width="95" height="20" uuid="3cf56d02-e13f-472f-a2ba-6da25afe7f5d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="650" y="8" width="77" height="20" uuid="50b423d0-867a-47aa-8041-53f1da1ee8b4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="727" y="8" width="75" height="20" uuid="d6ff3a32-a69d-4050-b887-728ffb1fa6d6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="8" width="75" height="20" uuid="9e489525-a478-4bf4-84fd-6ab7bb0a65c9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[No Transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="8" width="65" height="20" uuid="0a212fa9-5d49-4417-a763-636d96af27cf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="8" width="73" height="20" uuid="bc95da1b-9bfe-4488-9c9a-a27af3db5917"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Paket]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="8" width="62" height="20" uuid="efcd7eff-3871-42bb-8511-85fcb5d11b2e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="8" width="45" height="20" uuid="2a8a66a4-8b7b-4b61-b501-62b4b207d8fa"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="8" width="62" height="20" uuid="2b751548-b07f-413b-a218-43f106fbbb54"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="8" width="58" height="20" uuid="29bf2989-5fa3-46f3-a4cf-25cd3f5279f5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bayar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="666" y="8" width="61" height="20" uuid="ca37eded-a93d-4635-a4bb-f46d9fb0a75c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Kembalian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="743" y="8" width="59" height="20" uuid="cf1bd44f-d6af-483d-b201-94fef4aa4210"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="23" y="16" width="59" height="20" uuid="ce9c35cb-9e30-4abe-a4ce-5894450350c4"/>
+				<textFieldExpression><![CDATA[$F{kode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="16" width="81" height="20" uuid="db115338-7a58-44ad-97be-433b66a49d41"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="16" width="100" height="20" uuid="6675d984-4be7-4378-85b4-3a2dd5573b71"/>
+				<textFieldExpression><![CDATA[$F{paket}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="15" width="54" height="20" uuid="4384f97c-1763-42ce-b511-4bc6af5fa7e3"/>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="15" width="18" height="20" uuid="637e2c1d-fc55-4e18-a269-4f5ddbfd8f0b"/>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="503" y="15" width="52" height="20" uuid="07e3cca5-e928-443e-b67f-72a17bc8458f"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="589" y="15" width="58" height="20" uuid="7e738035-db64-48d7-b3fb-bdb323635947"/>
+				<textFieldExpression><![CDATA[$F{bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="16" width="51" height="20" uuid="bf66fc82-f6ab-4d8a-b33d-cf1a07089fd1"/>
+				<textFieldExpression><![CDATA[$F{kembalian}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="739" y="15" width="63" height="20" uuid="a1d463e1-63b4-4778-b515-573d555792f1"/>
+				<textFieldExpression><![CDATA[$F{tanggalpengambilan}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="35" width="802" height="1" uuid="6a26e6a6-ec1f-4d8c-8b07-13d0d8819f95"/>
+			</line>
+			<staticText>
+				<reportElement x="571" y="15" width="18" height="20" uuid="e9f75c97-0c98-464f-8180-2fefd43c653e"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="658" y="16" width="18" height="20" uuid="75970d63-e0e0-4e14-9d95-bc1ca568858c"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="15" width="18" height="20" uuid="578fc690-d1f9-4d52-b72b-93b52144e038"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[kg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="15" width="18" height="20" uuid="b81ecebf-eb7b-40a6-8f87-6941c7aac285"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="15" width="18" height="20" uuid="39e22a44-9557-46d8-a2a2-0ad5b741314a"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="223" splitType="Stretch">
+			<textField>
+				<reportElement x="628" y="180" width="100" height="20" uuid="e7fb59f8-221f-4d49-bd12-d7792d04d421"/>
+				<textFieldExpression><![CDATA[$P{user}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="628" y="71" width="134" height="20" uuid="2d96fddc-dbf1-487a-84fe-c39b7ba481be"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="588" y="71" width="40" height="20" uuid="aca2bf10-a2d9-4600-a524-38587f2709e8"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Jakarta,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="628" y="91" width="101" height="20" uuid="79094498-09be-4383-b669-2adf96dc52d0"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Adminstrator]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
